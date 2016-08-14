@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<package name="default" extends="struts-default">
+		<!-- <action name="{1}" class="flowerAction"> <result name="browseCatalog_success">/menu.jsp</result> 
+			<result name="browseNewFlower_success">goods/newFlower.jsp</result> <result 
+			name="browseFlowerPaging_success">goods/browseFlowerPaging.jsp</result> <result 
+			name="addOrUpdateGoods_success">addNewFlower_success.jsp</result> <result 
+			name="addOrUpdateGoods_error">addNewFlower.jsp</result> <result name="browseAllFlowerPaging_success">/goods/browseAllFlowerPaging.jsp</result> 
+			<result name="displayOneFlower_success">/goods/displayOneFlower.jsp</result> 
+			<result name="deleteOneFlower_success">/goods/deleteOneFlower_success.jsp</result> 
+			</action> -->
+		<action name="browseCatalog" class="flowerAction" method="browseCatalog">
+			<result name="browseCatalog_success">/menu.jsp</result>
+		</action>
+		<action name="browseNewFlower" class="flowerAction" method="browseNewFlower">
+			<result name="browseNewFlower_success">goods/newFlower.jsp</result>
+		</action>
+		<action name="browseFlowerPaging" class="flowerAction" method="browseFlowerPaging">
+			<result name="browseFlowerPaging_success">goods/browseFlowerPaging.jsp</result>
+		</action>
+		<action name="addOrUpdateGoods" class="flowerAction" method="addOrUpdateGoods">
+			<result name="addOrUpdateGoods_success">addNewFlower_success.jsp</result>
+			<result name="addOrUpdateGoods_error">addNewFlower.jsp</result>
+		</action>
+		<action name="managerFlower" class="flowerAction" method="browseAllFlowerPaging">
+			<result name="browseAllFlowerPaging_success">/goods/browseAllFlowerPaging.jsp</result>
+		</action>
+		<action name="browseAllFlowerPaging" class="flowerAction"
+			method="browseAllFlowerPaging">
+			<result name="browseAllFlowerPaging_success">/goods/browseAllFlowerPaging.jsp</result>
+		</action>
+		<action name="displayOneFlower" class="flowerAction" method="displayOneFlower">
+			<result name="displayOneFlower_success">/goods/displayOneFlower.jsp</result>
+		</action>
+		<action name="deleteOneFlower" class="flowerAction" method="deleteOneFlower">
+			<result name="deleteOneFlower_success">/goods/deleteOneFlower_success.jsp</result>
+		</action>
+		<action name="addOrUpdateUser" class="userAction" method="addOrUpdateUser">
+			<result name="success">/register_success.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
+		<action name="updateUser" class="userAction" method="updateUser">
+			<result name="success" type="redirect">browseAllUser.action</result>
+			<result name="error">displayOneUser.jsp</result>
+		</action>
+		<action name="checkUser" class="userAction" method="checkUser">
+			<result name="success">user/login_success.jsp</result>
+			<result name="error">user/login_fail.jsp</result>
+		</action>
+		<action name="browseAllUser" class="userAction" method="browseAllUser">
+			<result name="success">browseAllUser.jsp</result>
+			<result name="error">user/login_fail.jsp</result>
+		</action>
+		<action name="displayOneUser" class="userAction" method="displayOneUser">
+			<result name="success">displayOneUser.jsp</result>
+		</action>
+		<action name="modifyUser" class="userAction" method="displayOneUser">
+			<result name="success">user/modifyUser.jsp</result>
+		</action>
+		<action name="deleteOneUser" class="userAction" method="deleteOneUser">
+			<result name="success" type="redirect">browseAllUser.action</result>
+		</action>
+		<action name="logOut" class="userAction" method="logOut">
+			<result name="success">user/login_fail.jsp</result>
+		</action>
+		
+ 		<!--  <action name="*" class="shoppingAction" method="{1}">
+			<result name="{1}_success">{1}_success.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>  -->
+		
+		<action name="addToCart" class="shoppingAction" method="addToCart">
+			<result name="success">cart/addToCart_success.jsp</result>
+		</action>
+		<action name="updateCart" class="shoppingAction" method="updateCart">
+			<result name="success">/showCart.jsp</result>
+		</action>
+		<action name="checkOut" class="orderAction" method="checkOut">
+			<result name="success">/checkOut_success.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action> 
+		<action name="checkAdmin" class="adminAction" method="checkAdmin">
+			<result name="success">login_success.jsp</result>
+			<result name="error">admin_login.jsp</result>
+		</action>
+		<action name="adminlogOut" class="adminAction" method="adminlogOut">
+			<result name="success">admin_login.jsp</result>
+		</action>
+
+	</package>
+</struts>    

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.xhc.model.Orders" table="orders" catalog="flower">
+        <id name="ordersId" type="java.lang.Integer">
+            <column name="ordersId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="users" class="com.xhc.model.Users" fetch="select">
+            <column name="id" not-null="true">
+                <comment>用户名</comment>
+            </column>
+        </many-to-one>
+        <property name="num" type="java.lang.Integer">
+            <column name="num" not-null="true">
+                <comment>商品数量</comment>
+            </column>
+        </property>
+        <property name="sum" type="java.lang.Double">
+            <column name="sum" precision="10" not-null="true">
+                <comment>总金额</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.sql.Timestamp">
+            <column name="createTime" length="19" not-null="true">
+                <comment>下单时间</comment>
+            </column>
+        </property>
+        <set name="ordersdetailses" inverse="true" cascade="all">
+            <key>
+                <column name="ordersId" not-null="true">
+                    <comment>订单ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.xhc.model.Ordersdetails" />
+        </set>
+    </class>
+</hibernate-mapping>
